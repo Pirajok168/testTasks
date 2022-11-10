@@ -19,32 +19,19 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TestTasksTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-
-                }
+                
+                SplashScreen()
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(
-        text = "Mark Pro",
-        fontWeight = FontWeight.ExtraBold,
-        fontSize = 60.sp
-    )
-}
+
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     TestTasksTheme {
-        Greeting("Android")
+        SplashScreen()
     }
 }
