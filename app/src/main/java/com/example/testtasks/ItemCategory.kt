@@ -1,13 +1,12 @@
+@file:OptIn(ExperimentalMaterialApi::class)
+
 package com.example.testtasks
 
 import androidx.annotation.DrawableRes
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.material3.Icon
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.material.*
 
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -27,6 +26,7 @@ sealed class Categories(@DrawableRes val icon: Int, val label: String){
 
 }
 
+
 @Composable
 fun ItemCategory(
     isSelected: Boolean,
@@ -38,15 +38,16 @@ fun ItemCategory(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Surface(
-            color = if (isSelected) MaterialTheme.colorScheme.secondary else Color.White,
+            color = if (isSelected) MaterialTheme.colors.secondary else Color.White,
             shape = CircleShape,
             modifier = Modifier.size(71.dp),
-            onClick = onSelected
+            onClick = onSelected,
+            elevation = 3.dp
         ) {
             Icon(
                 painter = painterResource(id = item.icon),
                 contentDescription = "",
-                tint = Color.White,
+                tint = if (isSelected) Color.White else Color.LightGray,
                 modifier = Modifier.padding(17.dp)
             )
         }
@@ -54,7 +55,7 @@ fun ItemCategory(
         
         Text(
             text = item.label,
-            color = if (isSelected) MaterialTheme.colorScheme.secondary else MaterialTheme.colorScheme.onBackground,
+            color = if (isSelected) MaterialTheme.colors.secondary else MaterialTheme.colors.onBackground,
             fontWeight = FontWeight(500),
             fontSize = 12.sp
         )
