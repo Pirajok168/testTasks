@@ -33,7 +33,14 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             TestTasksTheme {
-                HomeScreen()
+                ItemBestSeller(
+                    price = "\$1,047",
+                    oldPrice = "\$1,500",
+                    nameModel = "Samsung Galaxy s20 Ultra",
+                    onFavorite = {},
+                    onClick = {},
+                    imgUrl="https://shop.gadgetufa.ru/images/upload/52534-smartfon-samsung-galaxy-s20-ultra-12-128-chernyj_1024.jpg"
+                )
             }
         }
     }
