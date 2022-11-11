@@ -2,15 +2,14 @@
 
 package com.example.testtasks
 
-import androidx.compose.foundation.background
-import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.*
 import androidx.compose.foundation.layout.*
+
 import androidx.compose.foundation.lazy.LazyRow
+
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.BasicTextField
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Search
@@ -24,10 +23,11 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.testtasks.ui.theme.TestTasksTheme
+import com.google.accompanist.flowlayout.FlowMainAxisAlignment
+import com.google.accompanist.flowlayout.FlowRow
 
 
-
-
+@ExperimentalFoundationApi
 @ExperimentalMaterialApi
 @Composable
 fun HomeScreen() {
@@ -52,6 +52,7 @@ fun HomeScreen() {
             )
 
         },
+        gesturesEnabled = false,
         drawerState = drawerState,
 
     ) {
@@ -130,11 +131,39 @@ fun HomeScreen() {
                                 )
                         )
                     }
-                        
+                }
 
-
+                Label(
+                    text = "Best Seller",
+                    subtext = "see more",
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(horizontal = 17.dp)
+                        .padding(top = 30.dp)
+                ) {
 
                 }
+                Spacer(modifier = Modifier.size(17.dp))
+
+                FlowRow(
+                    crossAxisSpacing = 12.dp,
+                    mainAxisSpacing = 11.dp,
+                    modifier = Modifier.fillMaxWidth().padding(horizontal = 17.dp),
+                    mainAxisAlignment = FlowMainAxisAlignment.Center
+                ) {
+                    (0..10).forEach {
+                        ItemBestSeller(
+                            price = "\$1,047",
+                            oldPrice = "\$1,500",
+                            nameModel = "Samsung Galaxy s20 Ultra",
+                            onFavorite = {},
+                            onClick = {},
+                            imgUrl="https://shop.gadgetufa.ru/images/upload/52534-smartfon-samsung-galaxy-s20-ultra-12-128-chernyj_1024.jpg"
+                        )
+                    }
+                }
+
+
 
 
 
@@ -153,8 +182,8 @@ fun HomeScreen() {
 
 @Preview
 @Composable
+@ExperimentalFoundationApi
 @ExperimentalMaterialApi
-
 fun PreviewHomeScreen() {
     TestTasksTheme{
         HomeScreen()

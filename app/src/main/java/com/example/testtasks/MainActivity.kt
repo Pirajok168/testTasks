@@ -3,6 +3,7 @@ package com.example.testtasks
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
@@ -28,19 +29,12 @@ import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
-    @OptIn(ExperimentalMaterialApi::class)
+    @OptIn(ExperimentalMaterialApi::class, ExperimentalFoundationApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             TestTasksTheme {
-                ItemBestSeller(
-                    price = "\$1,047",
-                    oldPrice = "\$1,500",
-                    nameModel = "Samsung Galaxy s20 Ultra",
-                    onFavorite = {},
-                    onClick = {},
-                    imgUrl="https://shop.gadgetufa.ru/images/upload/52534-smartfon-samsung-galaxy-s20-ultra-12-128-chernyj_1024.jpg"
-                )
+                HomeScreen()
             }
         }
     }

@@ -36,7 +36,7 @@ fun Label(
 
         ClickableText(text = AnnotatedString(subtext, spanStyle = SpanStyle(
             color = MaterialTheme.colors.secondary,
-            fontSize = 19.sp,
+            fontSize = 15.sp,
             fontWeight = FontWeight(400)
         )
         ), onClick = {

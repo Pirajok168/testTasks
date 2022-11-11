@@ -40,7 +40,7 @@ fun ItemBestSeller(
 ) {
     Card(
         onClick = onClick,
-        modifier = Modifier.size(width = 181.dp, height = 227.dp),
+        modifier = Modifier.size(width = 173.dp, height = 227.dp),
         elevation = 40.dp,
         shape = RoundedCornerShape(10)
     ) {
